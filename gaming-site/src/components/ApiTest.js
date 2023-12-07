@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 
 function ApiTest() {
 	const [games, setGames] = useState([]);
 
-	const API_KEY = "2f1343049971445f88da5670b14774f3";
+	console.log("API Key", process.env.REACT_APP_API_KEY.replace(";", ""));
+
 	const BASE_URL = `https://api.rawg.io/api/games`;
 
 	const slug = "the last of us";
@@ -17,7 +17,7 @@ function ApiTest() {
 		axios
 			.get(BASE_URL, {
 				params: {
-					key: API_KEY,
+					key: process.env.REACT_APP_API_KEY.replace(";", ""),
 					search: slug,
 				},
 			})
