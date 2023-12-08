@@ -66,7 +66,7 @@ export default function SearchResults() {
 						image={game.background_image}
 						title={game.name}
 						id={game.id}
-						// onClick={() => navigateTo(`/games/${game.id}`)}
+						platforms={game.parent_platforms}
 						onClick={() => handleClick(game.id)}
 					/>
 				))}
@@ -79,3 +79,4 @@ export default function SearchResults() {
 // 1. create a function that maps the plaforms array and outputs platform icon (if playstation, show PS icon)
 // 2. Do basic stylign on card
 // 3. Do basic styling on early error return
+// 4. Set up a laoder
