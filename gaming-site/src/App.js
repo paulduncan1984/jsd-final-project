@@ -1,10 +1,19 @@
+import { Route, Routes, HashRouter as Router, Link } from "react-router-dom";
 import "./App.css";
-import ApiTest from "./components/ApiTest";
+import Header from "./components/Header";
+import Details from "./components/Details";
+import SearchResults from "./components/SearchResults";
 
 function App() {
 	return (
 		<div className="App">
-			<ApiTest />
+			<Router>
+				<Header />
+				<Routes>
+					<Route path="/search/:query" element={<SearchResults />} />
+					<Route path="/games/:id" element={<Details />} />
+				</Routes>
+			</Router>
 		</div>
 	);
 }
