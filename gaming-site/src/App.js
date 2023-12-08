@@ -10,3 +10,7 @@ function App() {
 }
 
 export default App;
+
+// Build navigation bar (logo, search bar, some pages: games, creators etc)
+//  - possible login (store user data and bookmarked games)
+// Get search function working for games
