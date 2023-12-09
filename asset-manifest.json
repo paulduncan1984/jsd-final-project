@@ -1,13 +1,21 @@
 {
   "files": {
-    "main.css": "/jsd-final-project/static/css/main.f855e6bc.css",
-    "main.js": "/jsd-final-project/static/js/main.01237af4.js",
+    "main.css": "/jsd-final-project/static/css/main.337a40be.css",
+    "main.js": "/jsd-final-project/static/js/main.03f2b4d8.js",
+    "static/media/icons8-playstation-dark.svg": "/jsd-final-project/static/media/icons8-playstation-dark.6d5f721b3b1531f9b844ad6d712ec869.svg",
+    "static/media/icons8-playstation.svg": "/jsd-final-project/static/media/icons8-playstation.6c471e8ad95309fd54bc8bce0fa12993.svg",
+    "static/media/icons8-xbox-dark.svg": "/jsd-final-project/static/media/icons8-xbox-dark.24c0aaff1a8e9b45bdc1afffd1da8329.svg",
+    "static/media/icons8-xbox.svg": "/jsd-final-project/static/media/icons8-xbox.6e9596807f66fbd31047f5b5b1bfbaf5.svg",
+    "static/media/icons8-android.svg": "/jsd-final-project/static/media/icons8-android.bbf88c9dd3e42c9e6ed509557dd1851c.svg",
+    "static/media/icons8-windows-10.svg": "/jsd-final-project/static/media/icons8-windows-10.7c6d04c2ae63aabdc05ee56c9b325d1f.svg",
+    "static/media/icons8-apple-dark.svg": "/jsd-final-project/static/media/icons8-apple-dark.f75affada5840a1180d808bfe2fd3506.svg",
+    "static/media/icons8-apple.svg": "/jsd-final-project/static/media/icons8-apple.ac1c0afaf1050c5ce9299920e1c53179.svg",
     "index.html": "/jsd-final-project/index.html",
-    "main.f855e6bc.css.map": "/jsd-final-project/static/css/main.f855e6bc.css.map",
-    "main.01237af4.js.map": "/jsd-final-project/static/js/main.01237af4.js.map"
+    "main.337a40be.css.map": "/jsd-final-project/static/css/main.337a40be.css.map",
+    "main.03f2b4d8.js.map": "/jsd-final-project/static/js/main.03f2b4d8.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.01237af4.js"
+    "static/css/main.337a40be.css",
+    "static/js/main.03f2b4d8.js"
   ]
 }
