@@ -78,6 +78,7 @@ export default function Card({ image, title, id, onClick, platforms }) {
 				))}
 			</div>
 			<h2 className="card__heading">{title}</h2>
+			{/* <button className="btn__card">Read more</button> */}
 		</div>
 	);
 }

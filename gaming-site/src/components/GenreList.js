@@ -49,7 +49,6 @@ export default function GenreList() {
 	return (
 		<div className="genreList">
 			<h2>Filters</h2>
-			<hr />
 			{genres.map((genre, index) => (
 				<>
 					<p key={index} onClick={() => navigateTo(`/filter/${genre.name}`)}>

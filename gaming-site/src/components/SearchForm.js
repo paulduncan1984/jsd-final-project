@@ -15,14 +15,14 @@ export default function SearchForm() {
 		setSearchText("");
 	};
 	return (
-		<form onSubmit={handleSubmit}>
+		<form className="form" onSubmit={handleSubmit}>
 			<input
 				type="searchText"
 				value={searchText}
 				placeholder="Search 1000s of games..."
 				onChange={(e) => setSearchText(e.target.value)}
 			/>
-			<button>Search</button>
+			<button className="btn__form--search">Search</button>
 		</form>
 	);
 }

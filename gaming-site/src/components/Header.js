@@ -9,9 +9,20 @@ export default function Header() {
 
 	return (
 		<div className="header">
-			<h1>Temp logo</h1>
-			<ReactSwitch onChange={toggleTheme} checked={theme === "dark-mode"} />
-			<SearchForm />
+			<div className="header__logo">
+				<h1>RAWGPD</h1>
+			</div>
+			<div className="header__other">
+				<div className="header__switch">
+					<label>{theme === "light-mode" ? "Dark" : "Light"}</label>{" "}
+					<ReactSwitch
+						onColor={"#ff5c16"}
+						onChange={toggleTheme}
+						checked={theme === "dark-mode"}
+					/>
+				</div>
+				<SearchForm />
+			</div>
 		</div>
 	);
 } // EO Header
