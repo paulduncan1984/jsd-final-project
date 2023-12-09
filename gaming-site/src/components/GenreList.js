@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Route, Routes, HashRouter as Router, Link } from "react-router-dom";
-import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Card from "./Card";
 
 export default function GenreList() {
 	// state
@@ -50,51 +48,19 @@ export default function GenreList() {
 
 	return (
 		<div className="genreList">
-			{/* <ul> */}
 			<h2>Filters</h2>
 			<hr />
-			{genres.map((genre) => (
-				// <li key={genre.name}>
-				// 	<input
-				// 		type="checkbox"
-				// 		id={genre.name}
-				// 		name={genre.name}
-				// 		value={genre.name}
-				// 		onChange={() => navigateTo(`/filter/${genre.name}`)}
-				// 	/>{" "}
-				// 	{genre.name}
-				// </li>
-				// <li
-				// 	key={genre.name}
-				// 	style={{
-				// 		borderLeft: `solid 10px ${
-				// 			isHovered ? "hotpink" : "rgb(32, 31, 31)"
-				// 		}`,
-				// 		paddingBottom: "10px",
-				// 	}}
-				// 	onMouseEnter={() => setIsHovered(true)}
-				// 	onMouseLeave={() => setIsHovered(false)}
-				// 	onClick={() => navigateTo(`/filter/${genre.name}`)}
-				// >
-				// 	{genre.name}
-				// </li>
+			{genres.map((genre, index) => (
 				<>
-					{/* <p key={genre.name}>
-						<Link to={`/filter/${genre.name}`}>{genre.name}</Link>
-					</p>
-					<br /> */}
-					<p
-						key={genre.name}
-						onClick={() => navigateTo(`/filter/${genre.name}`)}
-					>
+					<p key={index} onClick={() => navigateTo(`/filter/${genre.name}`)}>
 						{genre.name}
 					</p>
-					{/* <br /> */}
 				</>
 			))}
-			{/* </ul> */}
 		</div>
 	);
 } // EO GenreList
 
 // https://api.rawg.io/api/genres?key=2f1343049971445f88da5670b14774f3
+
+// Why am I getting the key warning here
