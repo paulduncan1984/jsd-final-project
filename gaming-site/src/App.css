@@ -1,6 +1,20 @@
-/*
-Place colours here:
-*/
+/* :root {
+	--color-background: #201f1f;
+	--color-card: #373636;
+	--color-text: #ffffff;
+} */
+
+#dark-mode {
+	--color-background: #201f1f;
+	--color-card: #373636;
+	--color-text: #ffffff;
+}
+
+#light-mode {
+	--color-background: #b4b0b0;
+	--color-card: #8b8888;
+	--color-text: #201f1f;
+}
 
 /* /// FONTS /// */
 @import url("https://fonts.googleapis.com/css2?family=Nova+Square&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
@@ -18,8 +32,12 @@ body {
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 1.7;
-	color: white;
-	background-color: rgb(32, 31, 31);
+	/* padding: 0 30px 0; */
+}
+
+.App {
+	background-color: var(--color-background);
+	color: var(--color-text);
 	padding: 0 30px 0;
 }
 
@@ -35,10 +53,20 @@ h1 h2 h3 {
 	background-color: blueviolet;
 }
 
+/* /// CONTAINERS /// */
+
+.homepage-container {
+	display: flex;
+}
+
 .grid {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+}
+
+.main {
+	display: flex;
 }
 
 /* /// CARD /// */
@@ -47,7 +75,8 @@ h1 h2 h3 {
 	width: 350px;
 	height: 400px;
 	border-radius: 10px;
-	background-color: rgb(55, 54, 54);
+	background-color: var(--color-card);
+	color: var(--color-text);
 	margin: 20px 20px 0 0;
 	cursor: pointer;
 }
@@ -72,3 +101,37 @@ h1 h2 h3 {
 	width: 12.5px;
 	margin-left: 15px;
 }
+
+/* /// GENRE LIST /// */
+
+.genreList {
+	background-color: rgb(55, 54, 54);
+	min-width: 250px;
+	cursor: pointer;
+	box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.genreList h2 {
+	margin-left: 10px;
+}
+
+.genreList p {
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+
+.genreList p:hover {
+	background-color: hotpink;
+	border-right: solid 10px blue;
+}
+
+/* .genreList a {
+	text-decoration: none;
+	color: white;
+}
+
+.genreList a:hover {
+	border-bottom: solid 10px hotpink;
+	/* background-color: hotpink; */
+/* padding-left: 10px;
+} */

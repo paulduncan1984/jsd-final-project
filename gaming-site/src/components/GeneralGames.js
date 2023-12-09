@@ -3,29 +3,27 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Card from "./Card";
 
-export default function SearchResults() {
+export default function GeneralGames() {
 	// state
 	const [games, setGames] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
 	// routing
-	const params = useParams();
 	const navigateTo = useNavigate();
 
 	// API URL
 	const BASE_URL = `https://api.rawg.io/api/games`;
 
 	useEffect(() => {
-		loadSearchResults(params.query);
-	}, [params.query]); // EO useEffect
+		loadGeneralGames();
+	}, []); // EO useEffect
 
-	const loadSearchResults = (query) => {
+	const loadGeneralGames = () => {
 		axios
 			.get(BASE_URL, {
 				params: {
 					key: process.env.REACT_APP_API_KEY.replace(";", ""),
-					search: query,
 				},
 			})
 			.then((res) => {
@@ -37,7 +35,7 @@ export default function SearchResults() {
 				console.warn(`Error on API call back: `, err);
 				setLoading(false);
 			});
-	}; // EO loadSearchResults
+	}; // EO loadGenralGames
 
 	// handlers
 	const handleClick = (id) => {
@@ -49,28 +47,28 @@ export default function SearchResults() {
 	if (error) {
 		return (
 			<div>
-				<p>
-					Sorry, there seems to be an error. Please check your search query and
-					try again.
-				</p>
+				<p>Sorry, there seems to be an error.</p>
 			</div>
 		);
 	}
 
 	return (
 		<>
-			<div className="grid">
-				{games.map((game) => (
-					<Card
-						key={game.id}
-						image={game.background_image}
-						title={game.name}
-						id={game.id}
-						platforms={game.parent_platforms}
-						onClick={() => handleClick(game.id)}
-					/>
-				))}
+			<div className="homepage-container">
+				<div className="filters"></div>
+				<div className="grid">
+					{games.map((game) => (
+						<Card
+							key={game.id}
+							image={game.background_image}
+							title={game.name}
+							id={game.id}
+							platforms={game.parent_platforms}
+							onClick={() => handleClick(game.id)}
+						/>
+					))}
+				</div>
 			</div>
 		</>
 	);
-} // EO SearchResults
+}

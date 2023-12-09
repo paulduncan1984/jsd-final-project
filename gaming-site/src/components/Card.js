@@ -1,3 +1,4 @@
+// Icon imports
 import psIcon from "../images/icons/icons8-playstation.svg";
 import xboxIcon from "../images/icons/icons8-xbox.svg";
 import iosIcon from "../images/icons/icons8-apple.svg";
@@ -54,3 +55,12 @@ export default function Card({ image, title, id, onClick, platforms }) {
 // 5. Stores (probabyly best for the details page)
 // 6. Tags (probabyly best for the details page)
 // 7. Release date
+
+/////// DRY LOG
+// Can rendering of the icons be captured in a function?
+// i.e something like:
+// const renderIcon = (data, platform) => {
+// data.includes(platform) ? (
+// 	<img src={`${platform}Icon`} alt={platform} />
+// )
+// } // EO renderIcon
