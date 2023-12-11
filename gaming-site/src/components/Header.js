@@ -2,15 +2,20 @@ import { useContext } from "react";
 import SearchForm from "./SearchForm";
 import ReactSwitch from "react-switch";
 import { ThemeContent } from "../App";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Header() {
 	// state - passed by useContext
 	const { theme, toggleTheme } = useContext(ThemeContent);
+	// routing
+	const navigateTo = useNavigate();
 
 	return (
 		<div className="header">
 			<div className="header__logo">
-				<h1>RAWGPD</h1>
+				<Link to="/" exact>
+					<h1>RAWGPD</h1>
+				</Link>
 			</div>
 			<div className="header__other">
 				<div className="header__switch">

@@ -27,7 +27,7 @@ export default function GeneralGames() {
 				},
 			})
 			.then((res) => {
-				console.log(res.data.results);
+				// console.log(res.data.results);
 				setGames(res.data.results);
 				setLoading(false);
 			})
@@ -36,12 +36,6 @@ export default function GeneralGames() {
 				setLoading(false);
 			});
 	}; // EO loadGenralGames
-
-	// handlers
-	const handleClick = (id) => {
-		console.log("clicked");
-		navigateTo(`/games/${id}`);
-	}; // EO handleClick
 
 	// Early return if error
 	if (error) {
@@ -54,21 +48,17 @@ export default function GeneralGames() {
 
 	return (
 		<>
-			<div className="homepage-container">
-				<div className="filters"></div>
-				<div className="grid">
-					{games.map((game) => (
-						<Card
-							key={game.id}
-							image={game.background_image}
-							title={game.name}
-							id={game.id}
-							platforms={game.parent_platforms}
-							onClick={() => handleClick(game.id)}
-						/>
-					))}
+			{loading === true ? (
+				<p>Loading...</p>
+			) : (
+				<div className="homepage-container">
+					<div className="grid">
+						{games.map((game) => (
+							<Card key={game.id} id={game.id} />
+						))}
+					</div>
 				</div>
-			</div>
+			)}
 		</>
 	);
 }

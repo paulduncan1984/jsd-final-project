@@ -1,5 +1,8 @@
 import { ThemeContent } from "../App";
 import { useContext } from "react";
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
 // Icon imports
 import PlayStationIcon from "../images/icons/icons8-playstation.svg";
 import PlayStationIconDark from "../images/icons/icons8-playstation-dark.svg";
@@ -18,14 +21,66 @@ import linuxIconDark from "../images/icons/icons8-linux-dark.png";
 import AndroidIcon from "../images/icons/icons8-android.svg";
 import AndroidIconDark from "../images/icons/icons8-android-dark.png";
 
-export default function Card({ image, title, id, onClick, platforms }) {
+export default function NewCard({ id }) {
+	// state
+	const [game, setGame] = useState({
+		parent_platforms: [],
+	});
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(null);
 	// state - passed by useContext
 	const { theme } = useContext(ThemeContent);
+	// routing
+	const params = useParams();
+	const navigateTo = useNavigate();
+
+	// API URL
+	const BASE_URL = `https://api.rawg.io/api/games/${id}`;
+
+	useEffect(() => {
+		loadGameDetails(id);
+	}, [id]); // EO useEffect
+
+	const loadGameDetails = () => {
+		axios
+			.get(BASE_URL, {
+				params: {
+					key: process.env.REACT_APP_API_KEY.replace(";", ""),
+				},
+			})
+			.then((res) => {
+				// console.log(res.data);
+				setGame(res.data);
+				setLoading(false);
+			})
+			.catch((err) => {
+				console.warn(`Error on API call back: `, err);
+				setLoading(false);
+			});
+	};
+
+	// Early return if error
+	if (error) {
+		return (
+			<div>
+				<p>Sorry, there seems to be an error.</p>
+			</div>
+		);
+	}
+
 	return (
-		<div className="card" onClick={onClick}>
-			<img className="card__image" src={image} alt={title} />
+		<div
+			className="card"
+			key={game.id}
+			onClick={() => navigateTo(`/games/${game.id}`)}
+		>
+			<img
+				className="card__image"
+				src={game.background_image}
+				alt={game.name}
+			/>
 			<div className="card__platforms">
-				{platforms.map(({ platform }) => (
+				{game.parent_platforms.map(({ platform }) => (
 					<span key={platform.id}>
 						{platform.name.includes("PlayStation") ? (
 							<img
@@ -77,8 +132,8 @@ export default function Card({ image, title, id, onClick, platforms }) {
 					</span>
 				))}
 			</div>
-			<h2 className="card__heading">{title}</h2>
-			{/* <button className="btn__card">Read more</button> */}
+			<h2 className="card__heading">{game.name}</h2>
+			<button className="btn__card">Game details</button>
 		</div>
 	);
 }

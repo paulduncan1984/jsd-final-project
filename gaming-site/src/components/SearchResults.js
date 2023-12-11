@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Card from "./Card";
+// import NewCard from "./NewCard";
 
 export default function SearchResults() {
 	// state
@@ -29,7 +30,7 @@ export default function SearchResults() {
 				},
 			})
 			.then((res) => {
-				console.log(res.data.results);
+				// console.log(res.data.results);
 				setGames(res.data.results);
 				setLoading(false);
 			})
@@ -38,12 +39,6 @@ export default function SearchResults() {
 				setLoading(false);
 			});
 	}; // EO loadSearchResults
-
-	// handlers
-	const handleClick = (id) => {
-		console.log("clicked");
-		navigateTo(`/games/${id}`);
-	}; // EO handleClick
 
 	// Early return if error
 	if (error) {
@@ -59,18 +54,15 @@ export default function SearchResults() {
 
 	return (
 		<>
-			<div className="grid">
-				{games.map((game) => (
-					<Card
-						key={game.id}
-						image={game.background_image}
-						title={game.name}
-						id={game.id}
-						platforms={game.parent_platforms}
-						onClick={() => handleClick(game.id)}
-					/>
-				))}
-			</div>
+			{loading === true ? (
+				<p>Loading...</p>
+			) : (
+				<div className="grid">
+					{games.map((game) => (
+						<Card key={game.id} id={game.id} />
+					))}
+				</div>
+			)}
 		</>
 	);
 } // EO SearchResults

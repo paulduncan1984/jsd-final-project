@@ -60,6 +60,4 @@ export default function GenreList() {
 	);
 } // EO GenreList
 
-// https://api.rawg.io/api/genres?key=2f1343049971445f88da5670b14774f3
-
 // Why am I getting the key warning here
