@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Context } from "../App";
 import Card from "./Card";
+import Loader from "./Loader";
 
 export default function Portal() {
 	// state - passed by useContext
@@ -15,7 +16,7 @@ export default function Portal() {
 		<>
 			{!userData ? (
 				<div className="grid">
-					<p>Browse the site and build up your wishlist</p>
+					<Loader />
 				</div>
 			) : (
 				<div>

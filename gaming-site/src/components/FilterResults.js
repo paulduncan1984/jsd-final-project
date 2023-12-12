@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "./Card";
+import Loader from "./Loader";
 
 export default function FilterResults() {
 	// state
@@ -49,7 +50,9 @@ export default function FilterResults() {
 		<>
 			<div>
 				{loading === true ? (
-					<p>Loading...</p>
+					<div className="grid">
+						<Loader />
+					</div>
 				) : (
 					<div className="grid">
 						{games.map((game) => (

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Context } from "../App";
 import { useContext } from "react";
+import Loader from "./Loader";
 // Icon imports
 import PlayStationIcon from "../images/icons/icons8-playstation.svg";
 import PlayStationIconDark from "../images/icons/icons8-playstation-dark.svg";
@@ -70,7 +71,9 @@ export default function Details() {
 		<>
 			<div className="details">
 				{loading === true ? (
-					<p>Loading...</p>
+					<div className="grid">
+						<Loader />
+					</div>
 				) : (
 					<>
 						<div className="details__left">

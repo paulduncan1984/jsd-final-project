@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "./Card";
+import Loader from "./Loader";
 
 export default function GeneralGames() {
 	// state
@@ -45,7 +46,9 @@ export default function GeneralGames() {
 	return (
 		<>
 			{loading === true ? (
-				<p>Loading...</p>
+				<div className="grid">
+					<Loader />
+				</div>
 			) : (
 				<div className="homepage-container">
 					<div className="grid">

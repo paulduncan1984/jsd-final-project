@@ -493,3 +493,7 @@ h1 h2 h3 {
 	/* line-height: 110px; */
 	text-align: center;
 }
+
+.loader {
+	width: 60%;
+}

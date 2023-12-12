@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Card from "./Card";
+import Loader from "./Loader";
 
 export default function SearchResults() {
 	// state
@@ -54,7 +55,9 @@ export default function SearchResults() {
 	return (
 		<>
 			{loading === true ? (
-				<p>Loading...</p>
+				<div className="grid">
+					<Loader />
+				</div>
 			) : (
 				<div className="grid">
 					{games.map((game) => (
