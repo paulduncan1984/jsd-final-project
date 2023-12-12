@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/jsd-final-project/static/css/main.759fd1ec.css",
-    "main.js": "/jsd-final-project/static/js/main.3dbd4208.js",
+    "main.css": "/jsd-final-project/static/css/main.0ea37846.css",
+    "main.js": "/jsd-final-project/static/js/main.d03e7350.js",
     "static/media/icons8-playstation-dark.svg": "/jsd-final-project/static/media/icons8-playstation-dark.6d5f721b3b1531f9b844ad6d712ec869.svg",
     "static/media/icons8-playstation.svg": "/jsd-final-project/static/media/icons8-playstation.6c471e8ad95309fd54bc8bce0fa12993.svg",
     "static/media/icons8-xbox-dark.svg": "/jsd-final-project/static/media/icons8-xbox-dark.24c0aaff1a8e9b45bdc1afffd1da8329.svg",
@@ -11,11 +11,11 @@
     "static/media/icons8-apple-dark.svg": "/jsd-final-project/static/media/icons8-apple-dark.f75affada5840a1180d808bfe2fd3506.svg",
     "static/media/icons8-apple.svg": "/jsd-final-project/static/media/icons8-apple.ac1c0afaf1050c5ce9299920e1c53179.svg",
     "index.html": "/jsd-final-project/index.html",
-    "main.759fd1ec.css.map": "/jsd-final-project/static/css/main.759fd1ec.css.map",
-    "main.3dbd4208.js.map": "/jsd-final-project/static/js/main.3dbd4208.js.map"
+    "main.0ea37846.css.map": "/jsd-final-project/static/css/main.0ea37846.css.map",
+    "main.d03e7350.js.map": "/jsd-final-project/static/js/main.d03e7350.js.map"
   },
   "entrypoints": [
-    "static/css/main.759fd1ec.css",
-    "static/js/main.3dbd4208.js"
+    "static/css/main.0ea37846.css",
+    "static/js/main.d03e7350.js"
   ]
 }
