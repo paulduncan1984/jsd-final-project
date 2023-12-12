@@ -7,6 +7,9 @@ import SearchResults from "./components/SearchResults";
 import GenreList from "./components/GenreList";
 import GeneralGames from "./components/GeneralGames";
 import FilterResults from "./components/FilterResults";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Portal from "./components/Portal";
 
 // Light and Dark mode - React context
 export const ThemeContent = createContext(null);
@@ -34,6 +37,9 @@ function App() {
 							<Route path="/games/:id" element={<Details />} />
 							<Route path="/filter/:query" element={<FilterResults />} />
 							<Route path="/games/:id" element={<Details />} />
+							<Route path="/login" element={<Login />} />
+							<Route path="/register" element={<Register />} />
+							<Route path="/portal" element={<Portal />} />
 						</Routes>
 					</div>
 				</Router>
@@ -51,3 +57,5 @@ export default App;
 // 2. Do basic stylign on card
 // 3. Do basic styling on early error return
 // 4. Set up a laoder
+
+/////////// if I have time, look up React protected routes

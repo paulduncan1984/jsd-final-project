@@ -18,6 +18,9 @@ export default function Header() {
 				</Link>
 			</div>
 			<div className="header__other">
+				<div>
+					<Link to="/login">Login/Sign-up</Link>
+				</div>
 				<div className="header__switch">
 					<label>{theme === "light-mode" ? "Dark" : "Light"}</label>{" "}
 					<ReactSwitch
