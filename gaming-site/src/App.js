@@ -11,11 +11,13 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Portal from "./components/Portal";
 
-// Light and Dark mode - React context
-export const ThemeContent = createContext(null);
+export const Context = createContext(null);
+
 function App() {
 	// state
 	const [theme, setTheme] = useState("light-mode");
+	const [userId, setUserId] = useState();
+	const [userData, setUserData] = useState();
 
 	// handlers
 	const toggleTheme = () => {
@@ -26,7 +28,16 @@ function App() {
 
 	return (
 		<div className="App" id={theme}>
-			<ThemeContent.Provider value={{ theme, toggleTheme }}>
+			<Context.Provider
+				value={{
+					theme,
+					toggleTheme,
+					userId,
+					setUserId,
+					userData,
+					setUserData,
+				}}
+			>
 				<Router>
 					<Header />
 					<div className="main">
@@ -43,19 +54,22 @@ function App() {
 						</Routes>
 					</div>
 				</Router>
-			</ThemeContent.Provider>
+			</Context.Provider>
 		</div>
 	);
 }
 
 export default App;
 
-// Build navigation bar (logo, search bar, some pages: games, creators etc)
-//  - possible login (store user data and bookmarked games)
-// To do's
-// 1. create a function that maps the plaforms array and outputs platform icon (if playstation, show PS icon)
-// 2. Do basic stylign on card
-// 3. Do basic styling on early error return
-// 4. Set up a laoder
+/////// To do's
+// 1. Set up a laoder
+// 2. if I have time, look up React protected routes
 
-/////////// if I have time, look up React protected routes
+/////// DRY LOG
+// Can rendering of the icons be captured in a function?
+// i.e something like:
+// const renderIcon = (data, platform) => {
+// data.includes(platform) ? (
+// 	<img src={`${platform}Icon`} alt={platform} />
+// )
+// } // EO renderIcon

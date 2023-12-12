@@ -1,7 +1,7 @@
-import { ThemeContent } from "../App";
+import { Context } from "../App";
 import { useContext } from "react";
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 // Icon imports
 import PlayStationIcon from "../images/icons/icons8-playstation.svg";
@@ -29,9 +29,8 @@ export default function NewCard({ id }) {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 	// state - passed by useContext
-	const { theme } = useContext(ThemeContent);
+	const { theme } = useContext(Context);
 	// routing
-	const params = useParams();
 	const navigateTo = useNavigate();
 
 	// API URL
@@ -137,21 +136,3 @@ export default function NewCard({ id }) {
 		</div>
 	);
 }
-
-/////// What info could I place on this card:
-// 1. Genres
-// 2. Metacritic score (probabyly best for the details page)
-// 3. Parent platforms (turn these into icons)
-// 4. Ratings
-// 5. Stores (probabyly best for the details page)
-// 6. Tags (probabyly best for the details page)
-// 7. Release date
-
-/////// DRY LOG
-// Can rendering of the icons be captured in a function?
-// i.e something like:
-// const renderIcon = (data, platform) => {
-// data.includes(platform) ? (
-// 	<img src={`${platform}Icon`} alt={platform} />
-// )
-// } // EO renderIcon

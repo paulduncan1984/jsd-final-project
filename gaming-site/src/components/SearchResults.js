@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Card from "./Card";
-// import NewCard from "./NewCard";
 
 export default function SearchResults() {
 	// state

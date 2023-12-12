@@ -1,6 +1,5 @@
 :root {
-	--color-highlight-primary: rgb(255, 91, 20);
-	--color-highlight-secondary: rgb(113, 191, 92);
+	--color-highlight-primary: #ff5b14;
 }
 
 #dark-mode {
@@ -13,6 +12,7 @@
 #light-mode {
 	--color-background: #ffffff;
 	--color-card: #f1f1f1;
+	--color-card-light: #e9e6e6;
 	--color-text: #201f1f;
 }
 
@@ -75,7 +75,6 @@ h1 h2 h3 {
 	padding-left: 35px;
 	padding-right: 35px;
 	color: var(--color-text);
-	/* margin-top: 30px; */
 }
 
 .header__logo a {
@@ -95,6 +94,47 @@ h1 h2 h3 {
 	display: flex;
 	justify-content: space-between;
 	width: 20%;
+}
+
+.formContainer {
+	display: flex;
+	/* align-items: center; */
+	justify-content: center;
+	margin-left: 15%;
+	margin-right: 25%;
+}
+
+.loginForm {
+	background-color: var(--color-card);
+	width: 700px;
+	border-radius: 25px;
+	padding-top: 75px;
+	padding-bottom: 75px;
+	padding-right: 150px;
+	padding-left: 150px;
+}
+
+.loginForm label {
+	font-size: 20px;
+	line-height: 50px;
+}
+
+.loginForm input {
+	width: 400px;
+	height: 60px;
+	border-radius: 25px;
+	padding-left: 20px;
+	font-size: 18px;
+	font-family: inherit;
+	border: none;
+}
+
+.loginForm input:focus {
+	border: solid 1px var(--color-highlight-primary);
+}
+
+.loginForm:placeholder-shown {
+	color: var(--color-highlight-primary);
 }
 
 .form {
@@ -118,6 +158,41 @@ h1 h2 h3 {
 
 .form:placeholder-shown {
 	color: var(--color-highlight-primary);
+}
+
+.btn__login {
+	width: 100px;
+	height: 60px;
+	border: none;
+	border-radius: 25px;
+	background-color: var(--color-card-light);
+	color: var(--color-highlight-primary);
+	font-size: 18px;
+	font-weight: 600;
+	cursor: pointer;
+	margin-top: 20px;
+}
+
+.btn__login:hover {
+	background-color: var(--color-highlight-primary);
+	color: var(--color-text);
+}
+
+.btn__login--secondary {
+	width: 100px;
+	height: 60px;
+	border: solid 1px var(--color-highlight-primary);
+	border-radius: 25px;
+	color: var(--color-highlight-primary);
+	font-size: 18px;
+	font-weight: 600;
+	cursor: pointer;
+	margin-top: 20px;
+}
+
+.btn__login--secondary:hover {
+	background-color: var(--color-highlight-primary);
+	color: var(--color-text);
 }
 
 /* make the button universal  */
@@ -234,15 +309,69 @@ h1 h2 h3 {
 	height: fit-content;
 	padding-bottom: 20px;
 	cursor: pointer;
-	border-radius: 20px;
+	padding-top: 10px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
 	/* padding-right: 20px; */
 	/* box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1); */
 }
 
-.genreList h2 {
+.genreList h3 {
 	margin-left: 15px;
 	margin-top: 10px;
 	font-weight: 100;
+	font-size: 26px;
+}
+
+.userSummary {
+	background-color: var(--color-card-light);
+	border-top-right-radius: 20px;
+	border-top-left-radius: 20px;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	margin-bottom: -2px;
+}
+
+.userSummary p {
+	padding-left: 10px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	margin-left: 10px;
+}
+
+.userSummary a {
+	text-decoration: none;
+	color: var(--color-text);
+}
+
+.userSummary a:hover {
+	color: var(--color-highlight-primary);
+	margin-left: 5px;
+}
+
+.userSummary h2 {
+	margin-left: 15px;
+	margin-top: 10px;
+	font-weight: 100;
+	font-size: 26px;
+}
+
+.userSummary h2:hover {
+	background-color: var(--color-background);
+	border-radius: 10px;
+	margin-right: 2px;
+	margin-left: 2px;
+	padding-left: 5px;
+	color: var(--color-highlight-primary);
+}
+
+.signOut {
+	cursor: pointer;
+}
+
+.signOut:hover {
+	color: var(--color-highlight-primary);
+	margin-left: 5px;
 }
 
 .genreList p {
@@ -260,16 +389,18 @@ h1 h2 h3 {
 	color: var(--color-highlight-primary);
 }
 
-/* .genreList a {
+.genreList a {
 	text-decoration: none;
-	color: white;
+	color: var(--color-text);
 }
 
 .genreList a:hover {
-	border-bottom: solid 10px hotpink;
-	/* background-color: hotpink; */
-/* padding-left: 10px;
-} */
+	background-color: var(--color-background);
+	/* border-radius: 10px;
+	margin-right: 2px;
+	margin-left: 2px; */
+	color: var(--color-highlight-primary);
+}
 
 /* /// DETAILS /// */
 
@@ -311,6 +442,15 @@ h1 h2 h3 {
 
 .details__left {
 	margin-right: 20px;
+}
+
+.details__heading {
+	display: flex;
+	justify-content: space-between;
+}
+
+.details__heading__icon {
+	cursor: pointer;
 }
 
 .genre__tag {

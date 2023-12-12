@@ -1,20 +1,15 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "./Card";
-// import NewCard from "./NewCard";
-
-// https://api.rawg.io/api/genres
 
 export default function FilterResults() {
 	// state
 	const [games, setGames] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
-
 	// routing
 	const params = useParams();
-	// console.log(params.query);
 
 	// API URL
 	const BASE_URL = `https://api.rawg.io/api/genres`;

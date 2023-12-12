@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
-import { ThemeContent } from "../App";
+import { Context } from "../App";
 import { useContext } from "react";
-
 // Icon imports
 import PlayStationIcon from "../images/icons/icons8-playstation.svg";
 import PlayStationIconDark from "../images/icons/icons8-playstation-dark.svg";
@@ -21,6 +20,7 @@ import linuxIcon from "../images/icons/icons8-linux-48.png";
 import linuxIconDark from "../images/icons/icons8-linux-dark.png";
 import AndroidIcon from "../images/icons/icons8-android.svg";
 import AndroidIconDark from "../images/icons/icons8-android-dark.png";
+import FaveButton from "./FaveButton";
 
 export default function Details() {
 	// state
@@ -28,10 +28,9 @@ export default function Details() {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 	// state - passed by useContext
-	const { theme } = useContext(ThemeContent);
+	const { theme, userData } = useContext(Context);
 	// routing
 	const params = useParams();
-	const navigateTo = useNavigate();
 
 	// API URL
 	const BASE_URL = `https://api.rawg.io/api/games/${params.id}`;
@@ -56,7 +55,7 @@ export default function Details() {
 				console.warn(`Error on API call back: `, err);
 				setLoading(false);
 			});
-	};
+	}; // EO loadGameDetails
 
 	// Early return if error
 	if (error) {
@@ -75,7 +74,12 @@ export default function Details() {
 				) : (
 					<>
 						<div className="details__left">
-							<h1>{game.name}</h1>
+							<div className="details__heading">
+								<h1>{game.name}</h1>
+								<div className="details__heading__icon">
+									{userData ? <FaveButton id={game.id} /> : null}
+								</div>
+							</div>
 							<p>
 								<strong>Released:</strong> {game.released}
 							</p>

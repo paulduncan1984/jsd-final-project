@@ -25,32 +25,42 @@ export default function Register() {
 	}; // EO handleSubmit
 
 	return (
-		<>
-			<form onSubmit={handleSubmit}>
-				<label htmlFor="name">Full name</label>
-				<input
-					type="text"
-					id="name"
-					onChange={(e) => setName(e.target.value)}
-				/>
-				<label htmlFor="email">Email</label>
-				<input
-					type="text"
-					id="email"
-					onChange={(e) => setEmail(e.target.value)}
-				/>
-				<label htmlFor="password">Password</label>
-				<input
-					type="text"
-					id="password"
-					onChange={(e) => setPassword(e.target.value)}
-				/>
-				<button>Register</button>
-			</form>
-			<div>
-				<h2>Alrady have an account? Login</h2>
-				<button onClick={() => navigateTo("/login")}>Login</button>
+		<div className="formContainer">
+			<div className="loginForm">
+				<h1>Sign up</h1>
+				<p>Once you have signed up, you will be required to login again. </p>
+				<form onSubmit={handleSubmit}>
+					<label htmlFor="name">Full name</label>
+					<input
+						type="text"
+						id="name"
+						onChange={(e) => setName(e.target.value)}
+					/>
+					<label htmlFor="email">Email</label>
+					<input
+						type="email"
+						id="email"
+						onChange={(e) => setEmail(e.target.value)}
+					/>
+					<label htmlFor="password">Password</label>
+					<input
+						type="password"
+						id="password"
+						onChange={(e) => setPassword(e.target.value)}
+					/>
+					<button className="btn__login">Register</button>
+				</form>
+				<div>
+					<br />
+					<h2>Alrady have an account? Login</h2>
+					<button
+						className="btn__login--secondary"
+						onClick={() => navigateTo("/login")}
+					>
+						Login
+					</button>
+				</div>
 			</div>
-		</>
+		</div>
 	);
 }

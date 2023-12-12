@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+import { useContext } from "react";
+import { Context } from "../App";
 
 export default function GenreList() {
 	// state
 	const [genres, setGenres] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
-	const [isHovered, setIsHovered] = useState(false);
+	// state - passed by useContext
+	const { userData, setUserData } = useContext(Context);
 
 	// routing
 	const navigateTo = useNavigate();
@@ -47,15 +50,41 @@ export default function GenreList() {
 	}
 
 	return (
-		<div className="genreList">
-			<h2>Filters</h2>
-			{genres.map((genre, index) => (
-				<>
-					<p key={index} onClick={() => navigateTo(`/filter/${genre.name}`)}>
-						{genre.name}
-					</p>
-				</>
-			))}
+		<div className="sideBar">
+			<div className="userSummary">
+				{userData ? (
+					<>
+						<p>
+							Gamer: <strong>{userData.name}</strong>
+						</p>
+						<p>
+							Games in wish list: <strong>{userData.favourites.length}</strong>
+						</p>
+						<p>
+							<Link to="/portal">Wish list </Link>
+						</p>
+						<p className="signOut" onClick={() => setUserData(null)}>
+							Sign out
+						</p>
+					</>
+				) : (
+					<>
+						<h2>
+							<Link to="/login">Login</Link>
+						</h2>
+					</>
+				)}
+			</div>
+			<div className="genreList">
+				<h3>Filters</h3>
+				{genres.map((genre, index) => (
+					<>
+						<p key={index} onClick={() => navigateTo(`/filter/${genre.name}`)}>
+							{genre.name}
+						</p>
+					</>
+				))}
+			</div>
 		</div>
 	);
 } // EO GenreList

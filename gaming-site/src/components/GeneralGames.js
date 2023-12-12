@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Card from "./Card";
 
@@ -8,9 +7,6 @@ export default function GeneralGames() {
 	const [games, setGames] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
-
-	// routing
-	const navigateTo = useNavigate();
 
 	// API URL
 	const BASE_URL = `https://api.rawg.io/api/games`;
